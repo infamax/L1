@@ -8,20 +8,24 @@ import (
 )
 
 /*
-	Разработать программу, которая будет
-	последовательно отправлять значения в канал,
+	Разработать программу, которая
+	будет последовательно отправлять значения в канал,
 	а с другой стороны канала — читать.
 	По истечению N секунд программа должна завершаться
 */
 
-func GettingRandomNumbersV1(ctx context.Context, N int) {
+func GettingRandomNumbersV2(ctx context.Context, N int) {
+	timeoutCh := make(chan struct{}, 1)
+	go func() {
+		time.Sleep(time.Duration(N) * time.Second)
+		timeoutCh <- struct{}{}
+	}()
+
 	ch := make(chan int)
-	ctx, cancel := context.WithTimeout(ctx, time.Duration(N)*time.Second)
-	defer cancel()
 	go func() {
 		for i := 1; ; i++ {
 			select {
-			case <-ctx.Done():
+			case <-timeoutCh:
 				close(ch)
 				return
 			default:
@@ -47,6 +51,6 @@ func main() {
 	log.Println("Start")
 
 	ctx := context.Background()
-	GettingRandomNumbersV1(ctx, N)
+	GettingRandomNumbersV2(ctx, N)
 	log.Println("Finish")
 }
