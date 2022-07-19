@@ -1,6 +1,7 @@
 package main
 
 import (
+	"github.com/infamax/L1/task23/errors"
 	"reflect"
 	"testing"
 )
@@ -41,14 +42,14 @@ func TestDeleteItemsInSliceV1(t *testing.T) {
 			inputData:     []int{1, 2, 3, 4, 5},
 			i:             10,
 			expectedRes:   nil,
-			expectedError: incorrectPositionItem,
+			expectedError: errors.IncorrectPositionItem,
 		},
 		{
 			name:          "negative index removing item",
 			inputData:     []int{1, 2, 3, 4, 5},
 			i:             -1,
 			expectedRes:   nil,
-			expectedError: negativeIndex,
+			expectedError: errors.NegativeIndex,
 		},
 	}
 

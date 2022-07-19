@@ -1,27 +1,22 @@
 package main
 
 import (
-	"errors"
 	"fmt"
+	"github.com/infamax/L1/task23/errors"
 )
 
 /*
 Удалить i-ый элемент из слайса.
 */
 
-var (
-	incorrectPositionItem = errors.New("removing item number more than len slice")
-	negativeIndex         = errors.New("negative index removing item")
-)
-
 // DeleteItemsInSliceV1 первый способ без сохранения порядка
 func DeleteItemsInSliceV1(nums []int, i int) ([]int, error) {
 	if i >= len(nums) {
-		return nil, incorrectPositionItem
+		return nil, errors.IncorrectPositionItem
 	}
 
 	if i < 0 {
-		return nil, negativeIndex
+		return nil, errors.NegativeIndex
 	}
 
 	nums[i], nums[len(nums)-1] = nums[len(nums)-1], nums[i]
