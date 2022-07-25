@@ -2,6 +2,8 @@ package main
 
 import "fmt"
 
+// Реализовать быструю сортировку массива (quicksort) встроенными методами языка.
+
 func QuickSort(nums []int, l, r int) {
 	if l < r {
 		q := Partition(nums, l, r)

@@ -12,11 +12,21 @@ import (
 	"time"
 )
 
+/*
+
+
+Реализовать постоянную запись данных в канал (главный поток).
+Реализовать набор из N воркеров, которые читают произвольные данные из канала и выводят в stdout. Н
+еобходима возможность выбора количества воркеров при старте.
+Программа должна завершаться по нажатию Ctrl+C. Выбрать и обосновать способ завершения работы всех воркеров.
+*/
+
 func WriteRandomDataInChan(ch chan<- int, osChan chan os.Signal) {
 	for {
 		select {
 		case <-osChan: // Поступил сигнал завершить работу
 			log.Printf("main goroutine stop the work\n")
+			//close(ch)
 			return
 		case <-time.After(1 * time.Second): // Раз в секунду пишем рандомные данные в канал
 			rand.Seed(time.Now().UnixNano())

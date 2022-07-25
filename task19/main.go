@@ -2,6 +2,12 @@ package main
 
 import "fmt"
 
+/*
+
+Разработать программу, которая
+переворачивает подаваемую на ход строку (например: «главрыба — абырвалг»). Символы могут быть unicode
+*/
+
 func ReverseString(str string) string {
 	strRune := []rune(str)
 	for i := 0; i < len(strRune)/2; i++ {

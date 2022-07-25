@@ -32,10 +32,10 @@ func GettingRandomNumbersV2(ctx context.Context, N int) {
 				log.Printf("Sending number: %d", i)
 				ch <- i
 				time.Sleep(500 * time.Millisecond)
+
 			}
 		}
 	}()
-
 	for val := range ch {
 		log.Printf("Getting number from channel: %d", val)
 	}

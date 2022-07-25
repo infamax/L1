@@ -5,6 +5,11 @@ import (
 	"strings"
 )
 
+/*
+Разработать программу, которая переворачивает слова в строке.
+Пример: «snow dog sun — sun dog snow».
+*/
+
 func ReverseWordsInStrings(s string) string {
 	if len(s) == 0 {
 		return s

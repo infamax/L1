@@ -5,6 +5,15 @@ import (
 	"strings"
 )
 
+/*
+Разработать программу, которая проверяет, что все символы в строке уникальные
+(true — если уникальные, false etc). Функция проверки должна быть регистронезависимой.
+Например:
+abcd — true
+abCdefAaf — false
+	aabcd — false
+*/
+
 func IsUniqueString(str string) bool {
 	m := make(map[rune]struct{})
 	str = strings.ToLower(str)

@@ -5,12 +5,21 @@ import (
 	"time"
 )
 
-func mySleep(d time.Duration) {
+// Реализовать собственную функцию sleep.
+
+func mySleep1(d time.Duration) {
 	<-time.After(d)
+}
+
+func mySleep2(ns int64) {
+	if ns <= 0 {
+		return
+	}
+
 }
 
 func main() {
 	log.Println("Start")
-	mySleep(5 * time.Second)
+	mySleep1(5 * time.Second)
 	log.Println("finish")
 }

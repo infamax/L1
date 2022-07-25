@@ -2,6 +2,8 @@ package main
 
 import "fmt"
 
+// Реализовать бинарный поиск встроенными методами языка.
+
 func BinarySearch(nums []int, val int) bool {
 	l, r := -1, len(nums)
 

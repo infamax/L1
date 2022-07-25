@@ -48,6 +48,11 @@ func TestIntervalsTemperature(t *testing.T) {
 			for _, val := range res {
 				sort.Float64s(val)
 			}
+
+			for _, val := range tt.expectedRes {
+				sort.Float64s(val)
+			}
+
 			if reflect.DeepEqual(res, tt.expectedRes) {
 				t.Errorf("function return: %v, expectedRes: %v", res, tt.expectedRes)
 			}

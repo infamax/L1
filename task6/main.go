@@ -9,6 +9,8 @@ import (
 	"time"
 )
 
+// Реализовать все возможные способы остановки выполнения горутины.
+
 // StopGoroutinesV1 Первый способ используя контекст
 func StopGoroutinesV1() {
 	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)

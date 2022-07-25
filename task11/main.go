@@ -5,6 +5,10 @@ import (
 	"sort"
 )
 
+/*
+Реализовать пересечение двух неупорядоченных множеств.
+*/
+
 func Intersection(nums1, nums2 []int) []int {
 	sort.Ints(nums1)
 	sort.Ints(nums2)

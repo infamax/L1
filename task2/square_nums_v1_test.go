@@ -6,14 +6,14 @@ import (
 	"testing"
 )
 
-type Test struct {
+type test struct {
 	name      string
 	testSlice []int
 	want      []int
 }
 
 func TestSquareNumsV1(t *testing.T) {
-	tests := []Test{
+	tests := []test{
 		{
 			name:      "empty slice",
 			testSlice: []int{},
